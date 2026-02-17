@@ -4,7 +4,7 @@ Interactive visualization mapping ACLED's MENA dataset of excessive force incide
 
 ## 🌐 View Live Site
 
-Visit the interactive map: **[https://YOUR_USERNAME.github.io/ACLED_MENA_EVAP_Mapping/](https://YOUR_USERNAME.github.io/ACLED_MENA_EVAP_Mapping/)**
+Visit the interactive map: [**[https://YOUR_USERNAME.github.io/ACLED_MENA_EVAP_Mapping/](https://YOUR_USERNAME.github.io/ACLED_MENA_EVAP_Mapping/)**](https://ccb2195-ux.github.io/ACLED_MENA_EVAP_Mapping/)
 
 *(Replace YOUR_USERNAME with your GitHub username)*
 
