@@ -44,6 +44,104 @@
                 }
             </style>
 
+            <style>
+                /* Mobile-friendly timeline controls */
+                @media (max-width: 768px) {
+                    /* Make the TimeDimension control container more compact */
+                    .leaflet-control-timedimension {
+                        max-width: 100% !important;
+                        font-size: 10px !important;
+                    }
+
+                    .leaflet-bar-timecontrol {
+                        max-height: 45px !important;
+                    }
+
+                    /* Make the time slider more compact */
+                    .timecontrol-slider {
+                        height: 30px !important;
+                        margin: 3px 5px !important;
+                    }
+
+                    /* Shrink the date/time display */
+                    .timecontrol-date {
+                        font-size: 10px !important;
+                        padding: 2px 4px !important;
+                        line-height: 1.2 !important;
+                        max-height: 25px !important;
+                    }
+
+                    /* Make speed controls more compact */
+                    .timecontrol-speed {
+                        height: 25px !important;
+                        margin: 2px !important;
+                    }
+
+                    .timecontrol-speed-slider {
+                        width: 40px !important;
+                    }
+
+                    /* Shrink control buttons */
+                    .leaflet-control-timedimension a {
+                        width: 28px !important;
+                        height: 28px !important;
+                        line-height: 28px !important;
+                        font-size: 16px !important;
+                    }
+
+                    /* Compact the slider input */
+                    input.slider {
+                        height: 6px !important;
+                    }
+
+                    .ui-slider {
+                        height: 8px !important;
+                    }
+
+                    /* Reduce bottom margin */
+                    .leaflet-bottom .leaflet-control {
+                        margin-bottom: 5px !important;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    /* Extra compact for small phones */
+                    .leaflet-control-timedimension {
+                        font-size: 9px !important;
+                    }
+
+                    .leaflet-bar-timecontrol {
+                        max-height: 40px !important;
+                    }
+
+                    .timecontrol-slider {
+                        height: 25px !important;
+                        margin: 2px 3px !important;
+                    }
+
+                    .timecontrol-date {
+                        font-size: 9px !important;
+                        padding: 1px 3px !important;
+                        max-height: 20px !important;
+                    }
+
+                    .leaflet-control-timedimension a {
+                        width: 26px !important;
+                        height: 26px !important;
+                        line-height: 26px !important;
+                        font-size: 14px !important;
+                    }
+
+                    .timecontrol-speed-slider {
+                        width: 35px !important;
+                    }
+
+                    .ui-slider {
+                        height: 6px !important;
+                    }
+                }
+            </style>
+
             <script>
                 L_NO_TOUCH = false;
                 L_DISABLE_3D = false;

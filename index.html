@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive map visualization of excessive force against protesters in the MENA region">
+    <title>Violence against protesters explodes across Iran in 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cooper+Hewitt:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cooper Hewitt', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f2aa1 0%, #5ca98e 100%);
+            color: white;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            opacity: 0.95;
+            max-width: 800px;
+        }
+
+        .content {
+            padding: 2rem 1.5rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+        }
+
+        .section h2 {
+            color: #0f2aa1;
+            margin-bottom: 1rem;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+        }
+
+        .section p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .density-plot {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .density-plot img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 60%; /* 16:9 ratio - adjust as needed */
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-top: 1.5rem;
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .info-box {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: #555;
+        }
+
+        footer {
+            background: #2d3748;
+            color: #a0aec0;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .map-container {
+                padding-bottom: 75%; /* Optimized for compact timeline controls */
+                min-height: 400px; /* Ensure usable minimum height */
+            }
+
+            header {
+                padding: 1.5rem 1rem;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+        }
+
+        /* Small mobile */
+        @media (max-width: 480px) {
+            .map-container {
+                padding-bottom: 90%; /* Balanced ratio for small screens with compact controls */
+                min-height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>How Bad was Iran's Violent Crackdown on Protesters?</h1>
+            <p>Mapping ACLED's Excessive Use of Force Against Protesters Data</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <!-- Density Plot Section -->
+            <section class="section">
+                <h2>The Worst Crackdown on Protesters in a Decade</h2>
+                <p>Due to a sharply declining currency, a series of protests sprung up across Iran which would eventually
+                    lead to a nation-wide internet blackout, and an unprecedented wave of attacks on protesters. 
+                    The Iranian political establishment had weathered protests like this before 
+                    (like the Women, Life, and Freedom Movement from 2023), though something was different this time. </p>
+
+                <p>On January 8th, 2026, the Iranian government launched a full-scale internet blackout;
+                    a smokescreen which would provide cover for the regime's relentless assault on protesters
+                    around the country. The scale of the crackdown shocked the world, with photos and videos 
+                    slowly trickling out of Iran through hidden networks and satellite uploads, 
+                    with <a href="https://time.com/7357635/more-than-30000-killed-in-iran-say-senior-officials/">Time</a>
+                    recently reporting that the death toll could be as high as 30,000. 
+
+This timeline shows the frequency of excessive force incidents against protesters across the MENA region from 2016 to present.</p>
+                <div class="density-plot">
+                    <img src="density_plot.png" alt="ACLED Event density timeline showing excessive force incidents over time">
+                </div>
+                <div class="info-box">
+                    <p><strong>Note:</strong> Each bar represents one week of recorded events in the ACLED Data. Data sourced from
+                        <a href="https://acleddata.com/aggregated/aggregated-data-middle-east">ACLED aggregated Middle East data</a> on February 5th, 2026.</p>
+                </div>
+            </section>
+
+            <!-- Interactive Map Section -->
+            <section class="section">
+                <h2>Interactive Map</h2>
+                <p>While the Iranian people are no strangers to government violence, the current round of crackdowns
+                represents a roughly 300% increase in violent incidents recorded against protesters compared to the
+                last high-water-mark in November of 2022. </p>
+                <p> <a href="https://www.amnesty.org/en/latest/campaigns/2026/01/what-happened-at-the-protests-in-iran/">Amnesty International</a>
+                 reports that the Iran security forces engaged protesters with small arms, mass arrests, and disappearances
+                 across all of Iran's 31 provinces. Amnesty was able to confirm at least one hospital was operating a makeshift morgue,
+                with at least 205 unique body bags. </p>
+                <p></p>
+
+                <div class="info-box">
+                    <p><strong>How to use:</strong> Use the timeline slider at the bottom of the map to see how events evolved over time. Click on markers for detailed information about specific incidents.</p>
+                </div>
+
+                <div class="map-container">
+                    <iframe src="ACLED_MENA_Map2.html" title="Interactive map of ACLED MENA events"></iframe>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="section">
+                <h2>About This Data</h2>
+                <p>This visualization uses data from the Armed Conflict Location & Event Data Project (ACLED), with the largest limitation being ACLED's own Peaceful Protesting data. This project was meant to show how the 2025-26 Iran Protests compared to the last decade of protests in the region.</p>
+                <p>The map specifically focuses on incidents classified as "Excessive force against protesters" within the Middle East and North Africa region, though there are other significant confounding categories that could contribute to this analysis.</p>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Data: <a href="https://acleddata.com/" target="_blank" rel="noopener">ACLED</a> | Visualization created with Python, Folium, and Altair</p>
+        </div>
+    </footer>
+</body>
+</html>
